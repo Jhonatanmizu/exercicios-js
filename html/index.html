@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Anatomia HTML</title>
+    <style>
+      #content {
+        padding: 30px 0px;
+      }
+      /* *{
+        text-align: center;
+      } */
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Exercícios HTML</h1>
+    </header>
+    <nav>
+      <ol>
+        <li><a href="exerciciosHtml/texto1.html">01- Texto 1</a></li>
+        <li><a href="exerciciosHtml/texto2.html">02- Texto 2</a></li>
+        <li><a href="exerciciosHtml/listas.html">03- Listas</a></li>
+        <li>
+          <a href="exerciciosHtml/listasAninhadas.html">04- Listas Aninhadas</a>
+        </li>
+        <li><a href="exerciciosHtml/links.html">05- Links</a></li>
+        <li><a href="exerciciosHtml/tabela.html">06- Tabela</a></li>
+        <li><a href="exerciciosHtml/form/formulario.html">07- Formulario</a></li>
+      </ol>
+    </nav>
+    <section id="content"></section>
+    <footer>Curso de Web</footer>
+    <script>
+      document.querySelectorAll("a").forEach((link) => {
+        const content = document.getElementById("content");
+        link.onclick = function (e) {
+          e.preventDefault();
+          fetch(link.href)
+            .then((resp) => resp.text())
+            .then((html) => (content.innerHTML = html));
+        };
+      });
+    </script>
+  </body>
+</html>
