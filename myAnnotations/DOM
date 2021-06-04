@@ -1,0 +1,7 @@
+#DOM-Document Object Model;
+
+document.getElementById('example')<!-- By Id -->
+
+document.getElementByTagName('h1')<!-- select a tag -->
+
+
