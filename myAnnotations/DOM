@@ -4,4 +4,9 @@ document.getElementById('example')<!-- By Id -->
 
 document.getElementByTagName('h1')<!-- select a tag -->
 
+Array.from().forEach( e => e.classList.add())<!-- convert to array -->
 
+document.querySelector()
+document.querySelectorAll() 
+
+getAttribute('')
