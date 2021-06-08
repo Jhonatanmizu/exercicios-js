@@ -8,8 +8,17 @@
 </head>
 
 <body class="conteudo exercicio">
-    <div>Elemento</div>
+    <div div-elemento>Elemento</div>
     <script>
-        // ...
+        const div = document.querySelector('[div-elemento]')
+        div.style.position = 'absolute'
+        div.onmousemove = e => {
+            const div = e.target
+            div.style.cursor = 'move'
+            if ( e.buttons){
+                div.style.top = `${e.clientY - (div.clientHeight / 2)}px`
+                e.target.style.left = `${e.clientX - (div.clientWidth / 2)}px`
+            }
+        }
     </script>
 </body>
