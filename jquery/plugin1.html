@@ -22,6 +22,25 @@
     </div>
 
     <script>
-        
+        // const $ = {name: 'Não é o jquery'}
+        (function($){
+            $.fn.interpretar = function(){
+                const retirarChaves = s => s.substring(2, s.length - 2)
+                const conteudo = $(this).html()
+                const expressoesComChave = conteudo.match(/\{\{.+\}\}/g)
+                const expressoes = expressoesComChave.map(retirarChaves)
+                const resultados = expressoes.map(e => eval(e))
+
+                let conteudoFinal = conteudo
+                for (let i = 0; i < expressoesComChave.length; i++) {
+                    conteudoFinal = conteudoFinal.replace(
+                        expressoesComChave[i], resultados[i]
+                    )
+                    
+                }
+                $(this).html(conteudoFinal)
+            }
+        })(jQuery);
+        $('div').interpretar()
     </script>
 </body>
